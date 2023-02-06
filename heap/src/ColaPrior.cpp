@@ -1,17 +1,16 @@
-
 template<class T>
-ColaPrior<T>::ColaPrior() {
-	// COMPLETAR
-}
+ColaPrior<T>::ColaPrior()
+    : _elems(0), _tam(0)
+    {}
 
 template<class T>
 int ColaPrior<T>::tam() const {
-	// COMPLETAR
+	return _tam;
 }
 
 template<class T>
 void ColaPrior<T>::encolar(const T& elem) {
-	// COMPLETAR
+
 }
 
 template<class T>
