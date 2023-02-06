@@ -6,10 +6,8 @@
 using namespace std;
 
 template<class T>
-class ColaPrior {
-    private:
-        vector<T> _elems;
-        int _tam;
+class ColaPrior
+{
     public:
         ColaPrior();
         /*
@@ -19,6 +17,9 @@ class ColaPrior {
         const T& proximo() const;
         void desencolar();
          */
+    private:
+        vector<T> _elems;
+        int _tam;
 };
 
 #include "ColaPrior.cpp"
