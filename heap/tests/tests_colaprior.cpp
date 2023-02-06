@@ -6,10 +6,12 @@
 
 using namespace std;
 
+
 TEST(ColaPrior, vacio) {
     ColaPrior<int> q;
     ASSERT_EQ(q.tam(), 0);
 }
+
 
 TEST(ColaPrior, encolarUno) {
     ColaPrior<int> q;
@@ -197,4 +199,3 @@ TEST(ColaPrior, heapify1000) {
 	q.desencolar();
     }
 }
-

@@ -3,6 +3,7 @@ ColaPrior<T>::ColaPrior()
     : _elems(0), _tam(0)
     {}
 
+    /*
 template<class T>
 int ColaPrior<T>::tam() const {
 	return _tam;
@@ -27,4 +28,4 @@ template<class T>
 ColaPrior<T>::ColaPrior(const vector<T>& elems) {
 	// COMPLETAR
 }
-
+*/
