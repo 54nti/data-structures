@@ -6,20 +6,21 @@
 using namespace std;
 
 template<class T>
-class ColaPrior
-{
+class ColaPrior {
     public:
         ColaPrior();
-        /*
         int tam() const;
-        ColaPrior(const vector<T>& elems);
+        //ColaPrior(const vector<T>& elems);
         void encolar(const T& elem);
         const T& proximo() const;
-        void desencolar();
-         */
+        //void desencolar();
     private:
         vector<T> _elems;
         int _tam;
+        //------------------------------
+        void subir(int);
+        T padre(int);
+        void intercambiar(int, int);
 };
 
 #include "ColaPrior.cpp"
