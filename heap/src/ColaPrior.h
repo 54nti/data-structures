@@ -13,7 +13,7 @@ class ColaPrior {
         //ColaPrior(const vector<T>& elems);
         void encolar(const T& elem);
         const T& proximo() const;
-        //void desencolar();
+        void desencolar();
     private:
         vector<T> _elems;
         int _tam;
@@ -21,6 +21,12 @@ class ColaPrior {
         void subir(int);
         T padre(int);
         void intercambiar(int, int);
+        void bajar(int);
+        bool hoja(int);
+        bool tiene_hijo_der(int);
+        int hijo_izq(int);
+        int hijo_der(int);
+
 };
 
 #include "ColaPrior.cpp"

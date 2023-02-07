@@ -19,10 +19,15 @@ const T& ColaPrior<T>::proximo() const {
     return _elems[0];
 }
 
-/*
 template<class T>
-void ColaPrior<T>::desencolar() {}
+void ColaPrior<T>::desencolar() {
+    _elems[0] = _elems[_elems.size() - 1];
+    _elems.pop_back();
+    _tam--;
+    bajar(0);
+}
 
+/*
 template<class T>
 ColaPrior<T>::ColaPrior(const vector<T>& elems) {}
 */
@@ -49,3 +54,48 @@ void ColaPrior<T>::intercambiar(int index, int pindex) {
     _elems[index] = _elems[pindex];
     _elems[pindex] = temp;
 }
+
+template<class T>
+void ColaPrior<T>::bajar(int index) {
+    if(!hoja(index)) {
+        if(tiene_hijo_der(index) and (_elems[hijo_izq(index)] < _elems[hijo_der(index)])) {
+            intercambiar(index, hijo_der(index));
+            index = hijo_der(index);
+            bajar(index);
+        }
+        else {
+            if(_elems[index] < _elems[hijo_izq(index)]) {
+                intercambiar(index, hijo_izq(index));
+                index = hijo_izq(index);
+                bajar(index);
+            }
+        }
+    }
+}
+
+template<class T>
+bool ColaPrior<T>::hoja(int index) {
+    return _elems.size() < (index*2)+1;
+}
+
+template<class T>
+bool ColaPrior<T>::tiene_hijo_der(int index) {
+    return ((index*2)+2) <= (_elems.size() - 1);
+}
+
+template<class T>
+int ColaPrior<T>::hijo_izq(int index) {
+    return (index*2)+1;
+}
+
+template<class T>
+int ColaPrior<T>::hijo_der(int index) {
+    return (index*2)+2;
+}
+
+
+
+
+
+
+
