@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 TEST(ColaPrior, vacio) {
     ColaPrior<int> q;
     ASSERT_EQ(q.tam(), 0);
@@ -167,7 +166,6 @@ TEST(ColaPrior, encolarDesencolar1000) {
     }
 }
 
-/*
 TEST(ColaPrior, heapifyPermutaciones) {
     // Heapifica y desencola probando todas las permutaciones
     // posibles de t elementos para t = 1..MAX_T.
@@ -202,4 +200,3 @@ TEST(ColaPrior, heapify1000) {
 	q.desencolar();
     }
 }
-*/

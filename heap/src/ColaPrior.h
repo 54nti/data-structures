@@ -10,7 +10,7 @@ class ColaPrior {
     public:
         ColaPrior();
         int tam() const;
-        //ColaPrior(const vector<T>& elems);
+        ColaPrior(const vector<T>& elems);
         void encolar(const T& elem);
         const T& proximo() const;
         void desencolar();
