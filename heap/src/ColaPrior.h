@@ -23,6 +23,7 @@ class ColaPrior {
         void intercambiar(int, int);
         void bajar(int);
         bool hoja(int);
+        bool tiene_hijo_mayor(int);
         bool tiene_hijo_der(int);
         int hijo_izq(int);
         int hijo_der(int);

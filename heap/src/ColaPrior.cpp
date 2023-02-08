@@ -55,10 +55,11 @@ void ColaPrior<T>::intercambiar(int index, int pindex) {
     _elems[pindex] = temp;
 }
 
+/*
 template<class T>
 void ColaPrior<T>::bajar(int index) {
     if(!hoja(index)) {
-        if(tiene_hijo_der(index) and (_elems[hijo_izq(index)] < _elems[hijo_der(index)])) {
+        if(tiene_hijo_der(index) && (_elems[hijo_izq(index)] < _elems[hijo_der(index)])) {
             intercambiar(index, hijo_der(index));
             index = hijo_der(index);
             bajar(index);
@@ -72,10 +73,11 @@ void ColaPrior<T>::bajar(int index) {
         }
     }
 }
+*/
 
 template<class T>
 bool ColaPrior<T>::hoja(int index) {
-    return _elems.size() < (index*2)+1;
+    return _elems.size() <= ((index*2)+1);
 }
 
 template<class T>
@@ -94,6 +96,33 @@ int ColaPrior<T>::hijo_der(int index) {
 }
 
 
+template<class T>
+void ColaPrior<T>::bajar(int index) {
+    while(!hoja(index) && tiene_hijo_mayor(index)) {
+        if(tiene_hijo_der(index) && (_elems[hijo_izq(index)] < _elems[hijo_der(index)])) {
+            intercambiar(index, hijo_der(index));
+            index = hijo_der(index);
+        }
+        else {
+            /* do not check because in the while we already know that
+             * we have a greater node below
+            if(_elems[index] < _elems[hijo_izq(index)]) {
+                intercambiar(index, hijo_izq(index));
+                index = hijo_izq(index);
+            }
+             */
+            intercambiar(index, hijo_izq(index));
+            index = hijo_izq(index);
+        }
+    }
+}
+
+template<class T>
+bool ColaPrior<T>::tiene_hijo_mayor(int index) {
+    return (tiene_hijo_der(index) && (_elems[index] < _elems[hijo_der(index)]))
+            or
+            (_elems[index] < _elems[hijo_izq(index)]);
+}
 
 
 

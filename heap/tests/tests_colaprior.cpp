@@ -136,13 +136,16 @@ TEST(ColaPrior, encolarDesencolarPermutaciones) {
             for (int j = t; j > 0; j--) {
                 ASSERT_EQ(q.proximo(), j);
                 q.desencolar();
-	    }
+	        }
             siguiente_permutacion(v, i);
         }
     }
 }
 
 const int NCLAVES = 1000;
+
+//const int NCLAVES = 51;
+
 
 int clave(int i) {
 	return NCLAVES * ((i * i - 100 * i) % NCLAVES) + i;
@@ -159,7 +162,7 @@ TEST(ColaPrior, encolarDesencolar1000) {
         q.encolar(clave(i));
     }
     for (int i = NCLAVES; i > 0; i--) {
-	    //ASSERT_EQ(q.proximo(), v[i - 1]);
+	    ASSERT_EQ(q.proximo(), v[i - 1]);
 	    q.desencolar();
     }
 }
